@@ -47,60 +47,46 @@ export default function HomePage() {
 
   return (
     <>
-      {/* NAV BAR */}
-      <nav className="w-full border-b border-slate-200/60 bg-[#FBF7EC]">
+      {/* Minimal Responsive Nav Bar */}
+      <nav className="w-full border-b border-slate-200/60 bg-[#FBF7EC] sticky top-0 z-30">
         <div className="max-w-[1100px] mx-auto px-6 h-14 flex items-center justify-between">
-          {/* Left Logo */}
-          <div className="text-sm text-[#5E6A75] whitespace-nowrap">
-            <span className="font-semibold text-[#1C2A39]">Tasmia Rahman</span>
-            <span className="mx-1">•</span>
-            Voice Artist
-          </div>
-          {/* Right Links */}
-          <div className="flex items-center gap-6 text-sm text-[#1C2A39]">
+          {/* Left: Logo/Name */}
+          <div className="font-semibold text-[#1C2A39] text-base">Tasmia Rahman</div>
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-6 text-sm text-[#1C2A39]">
             <a href="#work" className="hover:text-[#0C1E3D]">Work</a>
             <a href="#about" className="hover:text-[#0C1E3D]">About</a>
             <a href="#contact" className="hover:text-[#0C1E3D]">Contact</a>
           </div>
+          {/* Hamburger for Mobile */}
+          <button
+            className="md:hidden flex flex-col justify-center items-center w-8 h-8"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Open menu"
+          >
+            <span className={`block h-0.5 w-6 bg-[#1C2A39] rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
+            <span className={`block h-0.5 w-6 bg-[#1C2A39] rounded my-1 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
+            <span className={`block h-0.5 w-6 bg-[#1C2A39] rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+          </button>
         </div>
+        {/* Mobile Menu Overlay */}
+        {menuOpen && (
+          <div className="fixed inset-0 z-40 bg-black/40 flex justify-end md:hidden">
+            <div className="bg-white w-2/3 max-w-xs h-full p-8 flex flex-col gap-8">
+              <button
+                className="self-end mb-8"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <span className="text-2xl">&times;</span>
+              </button>
+              <a href="#work" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-[#1C2A39]">Work</a>
+              <a href="#about" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-[#1C2A39]">About</a>
+              <a href="#contact" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-[#1C2A39]">Contact</a>
+            </div>
+          </div>
+        )}
       </nav>
-
-      {/* Minimal Top Title Bar for mobile (with hamburger) */}
-      <header className="w-full border-b border-slate-200/60 bg-[#FBF7EC] sticky top-0 z-30 md:hidden">
-        <div className="max-w-[1100px] mx-auto px-6 md:px-12 h-14 flex items-center">
-          <span className="font-bold text-lg text-[#1C2A39]">Tasmia Rahman</span>
-          <div className="ml-auto">
-            {/* Hamburger */}
-            <button
-              className="flex flex-col justify-center items-center w-8 h-8"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Open menu"
-            >
-              <span className={`block h-0.5 w-6 bg-[#1C2A39] rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-              <span className={`block h-0.5 w-6 bg-[#1C2A39] rounded my-1 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
-              <span className={`block h-0.5 w-6 bg-[#1C2A39] rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Hamburger Menu Overlay */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-black/40 flex justify-end md:hidden">
-          <div className="bg-white w-2/3 max-w-xs h-full p-8 flex flex-col gap-8">
-            <button
-              className="self-end mb-8"
-              onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
-            >
-              <span className="text-2xl">&times;</span>
-            </button>
-            <Link href="#work" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-[#1C2A39]">Work</Link>
-            <Link href="#about" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-[#1C2A39]">About</Link>
-            <Link href="#contact" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-[#1C2A39]">Contact</Link>
-          </div>
-        </div>
-      )}
 
       <main className="scroll-smooth bg-[#FBF7EC] text-[#1C2A39] pb-16">
         {/* Hero */}
@@ -270,22 +256,6 @@ export default function HomePage() {
             <p className="text-xs text-[#9CA3AF]">© 2025 Tasmia Rahman. All rights reserved.</p>
           </div>
         </footer>
-
-        {/* Fixed Bottom Mobile Menu */}
-        <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-slate-200 flex md:hidden justify-around py-2">
-          <Link href="#work" className="flex flex-col items-center text-xs text-[#1C2A39]">
-            <span>🎬</span>
-            Work
-          </Link>
-          <Link href="#about" className="flex flex-col items-center text-xs text-[#1C2A39]">
-            <span>👤</span>
-            About
-          </Link>
-          <Link href="#contact" className="flex flex-col items-center text-xs text-[#1C2A39]">
-            <span>✉️</span>
-            Contact
-          </Link>
-        </nav>
       </main>
     </>
   );
