@@ -46,21 +46,6 @@ export default function HomePage() {
 
   return (
     <main className="scroll-smooth bg-[#FBF7EC] text-[#1C2A39]">
-      {/* Header */}
-      <nav className="border-b border-slate-200/60">
-        <div className="max-w-[1100px] mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
-          <div className="text-sm text-[#5E6A75]">
-            <span className="font-semibold text-[#1C2A39]">Tasmia Rahman</span>{" "}
-            <span className="mx-1">•</span> Voice Artist
-          </div>
-          <ul className="flex items-center gap-7 text-sm text-[#5E6A75]">
-            <li><Link href="#work" className="hover:text-[#0C1E3D]">Work</Link></li>
-            <li><Link href="#about" className="hover:text-[#0C1E3D]">About</Link></li>
-            <li><Link href="#contact" className="hover:text-[#0C1E3D]">Contact</Link></li>
-          </ul>
-        </div>
-      </nav>
-
       {/* Hero */}
       <section className="min-h-[88vh] flex items-center">
         <div className="max-w-[1100px] mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12">
@@ -159,24 +144,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* About Me Section */}
       <section id="about" className="scroll-mt-24 pt-20 pb-12">
-  <div className="max-w-[1100px] mx-auto px-6 md:px-12">
-    <motion.div {...fadeInProps}>
-      <h2 className="text-3xl md:text-4xl font-semibold mb-6">About Me</h2>
-      <div className="max-w-3xl space-y-4 text-[#5E6A75] leading-relaxed text-base md:text-lg">
-        <p>
-          I’m a professional voice-over artist with over six years of experience bringing words to life in both Bengali and English.
-        </p>
-        <p>
-          My voice has been trusted by brands, agencies, and creators for commercials, documentaries, corporate narrations, and digital campaigns.
-        </p>
-        <p>
-          I believe that a great voice doesn’t just read a script, it tells a story, evokes emotion, and builds connection.
-        </p>
-      </div>
-    </motion.div>
-  </div>
-</section>
+        <div className="max-w-[1100px] mx-auto px-6 md:px-12">
+          <motion.div {...fadeInProps}>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6">About Me</h2>
+            <div className="max-w-3xl space-y-4 text-[#5E6A75] leading-relaxed text-base md:text-lg">
+              <p>
+                I’m a professional voice-over artist with over six years of experience bringing words to life in both Bengali and English.
+              </p>
+              <p>
+                My voice has been trusted by brands, agencies, and creators for commercials, documentaries, corporate narrations, and digital campaigns.
+              </p>
+              <p>
+                I believe that a great voice doesn’t just read a script, it tells a story, evokes emotion, and builds connection.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Ready to Collaborate */}
       <section id="contact" className="scroll-mt-24 pt-28 pb-24">
